@@ -1,0 +1,15 @@
+
+.normal{
+  background: #fff;
+	line-height: 44px;
+	height: 44px;
+	position: relative;
+	z-index: 10;
+	position: relative;
+	border-bottom: 1px solid #ddd;
+	box-sizing: border-box;
+	
+}
+.normal h1{
+	font-size: 16px;
+}
