@@ -15,7 +15,8 @@ const BusinessRow = React.lazy(() => import('./BusinessRow'));
 const TaskRow = React.lazy(() => import('./TaskRow'));
 //节点资源模块
 const ResourceRow = React.lazy(() => import('./ResourceRow'));
-
+//训练情况统计模块
+const CoachRow = React.lazy(() => import('./CoachRow'));
 
 @connect(({loading,chart}) => ({
   chart,
@@ -25,7 +26,6 @@ class Page extends Component {
   
   state = {
     currentBusType:'cpu',
-    currentResourceType:'cpu',
   }
   
   componentDidMount () {
@@ -52,13 +52,6 @@ class Page extends Component {
     });
   }
   
-  //切换节点资源
-  resourceChange = e => {
-    this.setState({
-      currentResourceType:e.target.value
-    });
-  }
-  
   render () {
     const {loading,chart} = this.props;
     const {
@@ -66,9 +59,8 @@ class Page extends Component {
       approlData,
       businessData,
       taskData,
-      resourceData,
     } = chart;
-    const {currentBusType,currentResourceType} = this.state;
+    const {currentBusType} = this.state;
     
     let businessPieData;
     if(currentBusType === 'cpu'){
@@ -102,14 +94,14 @@ class Page extends Component {
         <Row style={{marginTop:24}}>
           <Col span={24}>
             <Suspense fallback={null}>
-              <ResourceRow loading={loading} dataSource={resourceData} currentResourceType={currentResourceType} resourceChange={this.resourceChange} />
+              <ResourceRow />
             </Suspense>
           </Col>
         </Row>
         <Row style={{marginTop:24}}>
           <Col span={24}>
             <Suspense fallback={null}>
-              {/*<CoachRow loading={loading} dataSource={coachData} currentTime={currentResourceType} timeChange={this.timeChange} />*/}
+              <CoachRow />
             </Suspense>
           </Col>
         </Row>

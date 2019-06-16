@@ -6,6 +6,11 @@ export default {
     approlData:[],
     businessData:[],
     resourceData:[],
+    coachData:[],
+    serviceDevData:{},
+    serviceTaskData:{},
+    serviceTensData:{},
+    serviceReasonData:{},
   },
   reducers:{
     save (state,{payload}) {
@@ -20,6 +25,11 @@ export default {
         approlData:[],
         businessData:[],
         resourceData:[],
+        coachData:[],
+        serviceDevData:{},
+        serviceTaskData:{},
+        serviceTensData:{},
+        serviceReasonData:{},
       }
     }
   },
@@ -29,6 +39,16 @@ export default {
       yield put({
         type:'save',
         payload:res
+      })
+    },
+    *fetchDate ({payload},{put,call}) {
+      console.log('当前日期区间===',payload);
+      const res = yield call(getChartData);
+      yield put({
+        type:'save',
+        payload:{
+          coachData: res.coachData,
+        }
       })
     }
   }
