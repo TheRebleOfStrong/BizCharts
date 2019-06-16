@@ -37,8 +37,8 @@ class UserPage extends Component{
     const {loading,chart} = this.props;
     const {
       serviceDevData,
-      serviceTeskData,
-      serviceTansData,
+      serviceTaskData,
+      serviceTensData,
       serviceReasonData,
     } = chart;
     
@@ -50,8 +50,8 @@ class UserPage extends Component{
             <ServiceRow
               loading={loading}
               serviceDevData={serviceDevData}
-              serviceTeskData={serviceTeskData}
-              serviceTansData={serviceTansData}
+              serviceTaskData={serviceTaskData}
+              serviceTensData={serviceTensData}
               serviceReasonData={serviceReasonData}
             />
           </Suspense>

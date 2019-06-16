@@ -6,7 +6,7 @@ const ChartPage = memo(({dataSource}) => {
     <>
       <Chart
         width={0}
-        height={500}
+        height={380}
         scale={{time:{range:[0,1]},value:{min:0,max:100}}}
         padding={[10,'auto',60,'auto']}
         data={dataSource}
